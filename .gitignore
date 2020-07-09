@@ -1,0 +1,13 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+node_modules/
+.nyc_output
+.env
+# Coverage directory used by tools like istanbul
+coverage
+src/.DS_Store
+src/controllers/.DS_Store
+yarn.lock
+.DS_Store
+.editorconfig
+test/.DS_Store
+test/trainee/.DS_Store
