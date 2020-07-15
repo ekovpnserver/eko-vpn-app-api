@@ -20,4 +20,5 @@ router.put('/user/id/:user', validator(edit), auth('apps'), userController.updat
 router.put('/user/extendminutes/:user', auth('apps'), userController.extendMinutes) // extend user minutes
 
 router.get('/json/setup', auth('apps'), appController.setUp) // get the setup json
+router.get('/json/ads', auth('apps'), appController.ads) // get the ads json
 module.exports = router

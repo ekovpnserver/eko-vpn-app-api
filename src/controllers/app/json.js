@@ -14,3 +14,15 @@ exports.setUp = async (req, res, next) => {
     next(error)
   }
 }
+
+exports.ads = async (req, res, next) => {
+  try {
+    let rawdata = fs.readFileSync('ads.json')
+    let ads = JSON.parse(rawdata)
+
+    res.status(httpStatus.OK)
+    res.send({ success: true, message: 'ads fetched successfully', data: ads })
+  } catch (error) {
+    next(error)
+  }
+}
