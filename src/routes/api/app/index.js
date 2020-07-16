@@ -17,6 +17,7 @@ router.post('/user', validator(create), auth('apps'), userController.createUser)
 router.get('/user/id/:user', auth('apps'), userController.getUserByID) // get a user by ID
 router.get('/user/account/:account', auth('apps'), userController.getUserByAccount) // get a user by account ID
 router.put('/user/id/:user', validator(edit), auth('apps'), userController.updateUser) // update a user by id
+router.get('/user/order/:order', auth('apps'), userController.findUserByOrderNumber) // find a user by order number
 router.put('/user/extendminutes/:user', auth('apps'), userController.extendMinutes) // extend user minutes
 
 router.get('/json/setup', auth('apps'), appController.setUp) // get the setup json

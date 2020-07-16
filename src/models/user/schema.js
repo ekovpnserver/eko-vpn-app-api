@@ -41,6 +41,14 @@ const schema = new Schema({
     type: Date,
     default: null
   },
+  order_number: {
+    type: String,
+    default: null
+  },
+  order_data: {
+    type: Date,
+    default: null
+  },
   time_expiry: {
     type: Date,
     default: Date.now()

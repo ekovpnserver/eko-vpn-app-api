@@ -21,7 +21,9 @@ module.exports = {
       referred_by: Joi.string(),
       account_type: Joi.string().valid('paid', 'free'),
       vpn_credits: Joi.string(),
-      active: Joi.boolean().valid(true, false)
+      active: Joi.boolean().valid(true, false),
+      order_number: Joi.string(),
+      order_date: Joi.date()
     }
   }
 }
