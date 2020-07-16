@@ -5,7 +5,7 @@ const { schema } = require('./schema')
 schema.method({
   transform () {
     const transformed = {}
-    const fields = ['account_id', 'referral_id', 'referred_by', 'role', 'account_type', 'vpn_credits', 'renewal_at', 'active']
+    const fields = ['account_id', 'referral_id', 'referred_by', 'role', 'account_type', 'vpn_credits', 'renewal_at', 'active', 'order_number', 'order_date']
 
     fields.forEach((field) => {
       transformed[field] = this[field]
