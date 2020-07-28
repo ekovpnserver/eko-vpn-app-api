@@ -38,7 +38,7 @@ exports.extendMinutes = async (req, res, next) => {
     user.save()
 
     res.status(httpStatus.OK)
-    res.send({ success: true, message: 'User time expiry updated successfully', user })
+    res.send({ success: true, message: 'User time expiry updated successfully', data: user })
   } catch (error) {
     next(error)
   }

@@ -13,7 +13,7 @@ exports.getUserByID = async (req, res, next) => {
     }
 
     res.status(httpStatus.CREATED)
-    res.send({ success: true, message: 'user fetched successfully', data: user.transform() })
+    res.send({ success: true, message: 'user fetched successfully', data: user })
   } catch (error) {
     next(error)
   }
@@ -29,7 +29,7 @@ exports.getUserByAccount = async (req, res, next) => {
     }
 
     res.status(httpStatus.CREATED)
-    res.send({ success: true, message: 'user fetched successfully', data: user.transform() })
+    res.send({ success: true, message: 'user fetched successfully', data: user })
   } catch (error) {
     next(error)
   }
@@ -41,11 +41,11 @@ exports.findUserByOrderNumber = async (req, res, next) => {
 
     if (!user) {
       res.status(httpStatus.BAD_REQUEST)
-      res.send({ success: false, message: 'error fetching user', user })
+      res.send({ success: false, message: 'error fetching user', data: user })
     }
 
     res.status(httpStatus.CREATED)
-    res.send({ success: true, message: 'user fetched successfully', data: user.transform() })
+    res.send({ success: true, message: 'user fetched successfully', data: user })
   } catch (error) {
     next(error)
   }

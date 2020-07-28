@@ -13,7 +13,7 @@ exports.authApp = async (req, res, next) => {
       {
         expiresIn: '24h' // expires in 24 hours //input is in seconds
       })
-    return res.json({ success: true, message: 'login successful', token: token, app: app.transform() })
+    return res.json({ success: true, message: 'login successful', token: token, data: app })
   } catch (error) {
     next(error)
   }
@@ -28,7 +28,7 @@ exports.getApp = async (req, res, next) => {
       res.send({ success: false, message: 'Error fetching app' })
     }
     res.status(httpStatus.OK)
-    res.send({ success: true, message: 'App fetched successfully', app })
+    res.send({ success: true, message: 'App fetched successfully', data: app })
   } catch (error) {
     return next((error))
   }
