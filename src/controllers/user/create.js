@@ -28,7 +28,7 @@ exports.createUser = async (req, res, next) => {
     }
 
     res.status(httpStatus.OK)
-    res.send({ success: true, message: 'User created successfully', user })
+    res.send({ success: true, message: 'User created successfully', data: user })
   } catch (error) {
     return next(error)
   }
