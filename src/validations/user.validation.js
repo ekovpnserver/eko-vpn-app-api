@@ -6,8 +6,8 @@ const Joi = require('joi')
 module.exports = {
   create: {
     body: {
-      account_id: Joi.string().optional(),
-      referral_id: Joi.string().optional(),
+      account_number: Joi.string().optional(),
+      referral_code: Joi.string().optional(),
       referred_by: Joi.string().optional(),
       account_type: Joi.string().optional().valid('paid', 'free'),
       vpn_credits: Joi.string().optional(),
@@ -16,8 +16,8 @@ module.exports = {
   },
   edit: {
     body: {
-      account_id: Joi.string(),
-      referral_id: Joi.string(),
+      account_number: Joi.string(),
+      referral_code: Joi.string(),
       referred_by: Joi.string(),
       account_type: Joi.string().valid('paid', 'free'),
       vpn_credits: Joi.string(),

@@ -21,7 +21,7 @@ exports.getUserByID = async (req, res, next) => {
 
 exports.getUserByAccount = async (req, res, next) => {
   try {
-    const user = await User.findOne({account_id: req.params.account})
+    const user = await User.findOne({account_number: req.params.account})
 
     if (!user) {
       res.status(httpStatus.BAD_REQUEST)

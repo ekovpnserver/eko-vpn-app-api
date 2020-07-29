@@ -6,16 +6,16 @@ const randomstring = require('randomstring')
 
 exports.createUser = async (req, res, next) => {
   try {
-    if (!req.body.account_id) {
+    if (!req.body.account_number) {
       let userGeneratedData = {
-        account_id: randomstring.generate({
+        account_number: randomstring.generate({
           length: 16,
-          charset: 'alphanumeric'
+          charset: 'numeric'
         }),
-        referral_id: randomstring.generate({
+        referral_code: toUpperCase(randomstring.generate({
           length: 10,
           charset: 'alphanumeric'
-        })
+        }))
       }
       Object.assign(req.body, userGeneratedData)
     }

@@ -10,12 +10,12 @@ const userTypes = [
 ]
 
 const schema = new Schema({
-  account_id: {
+  account_number: {
     type: String,
     required: true,
     unique: true
   },
-  referral_id: {
+  referral_code: {
     type: String,
     default: null
   },
