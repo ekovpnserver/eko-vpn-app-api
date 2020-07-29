@@ -12,10 +12,11 @@ exports.createUser = async (req, res, next) => {
           length: 16,
           charset: 'numeric'
         }),
-        referral_code: toUpperCase(randomstring.generate({
+        referral_code: randomstring.generate({
           length: 10,
-          charset: 'alphanumeric'
-        }))
+          charset: 'alphanumeric',
+          capitalization: 'uppercase'
+        })
       }
       Object.assign(req.body, userGeneratedData)
     }
