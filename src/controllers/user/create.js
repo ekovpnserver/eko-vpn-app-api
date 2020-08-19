@@ -1,6 +1,7 @@
 'use strict'
 
 const User = require('../../models/user')
+const Referral = require('../../models/referral')
 const httpStatus = require('http-status')
 const randomstring = require('randomstring')
 
@@ -20,9 +21,26 @@ exports.createUser = async (req, res, next) => {
       }
       Object.assign(req.body, userGeneratedData)
     }
+
     const appData = new User(req.body)
 
     const user = await appData.save()
+
+    // process referral if any
+    if(req.body.referred_by) {
+      const referral = await User.findOne({referral_code: req.body.referred_by})
+      if(!referral){ 
+        // no referral matched with the code provided 
+      }else{
+        // store the referral code
+        const ref = new Referral()
+        ref.account_number = user.account_number
+        ref.referral_code = referral.referral_code
+        ref.referred_by = referral.account_number
+        ref.save()
+      }
+      }
+
     if (!user) {
       res.status(httpStatus.BAD_REQUEST)
       res.send({ success: false, message: 'Error creating user' })

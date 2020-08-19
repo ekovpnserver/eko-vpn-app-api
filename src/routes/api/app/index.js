@@ -15,6 +15,9 @@ router.get('/authenticate/refresh-token', auth('apps'), authController.refreshTo
 
 router.post('/user', validator(create), auth('apps'), userController.createUser) // create a user
 router.get('/user/id/:user', auth('apps'), userController.getUserByID) // get a user by ID
+router.get('/user/claim-referral/:account', auth('apps'), userController.claimUserReferral) // claim a user referral by account
+router.get('/user/account/:account/imei/:imei', auth('apps'), userController.getUserByAccountImei) // get a user by account ID and IMEI
+router.delete('/user/account/:account/imei/:imei', auth('apps'), userController.deleteUserDevice) // delete a user device by account ID and IMEI
 router.get('/user/account/:account', auth('apps'), userController.getUserByAccount) // get a user by account ID
 router.put('/user/id/:user', validator(edit), auth('apps'), userController.updateUser) // update a user by id
 router.get('/user/order/:order', auth('apps'), userController.findUserByOrderNumber) // find a user by order number

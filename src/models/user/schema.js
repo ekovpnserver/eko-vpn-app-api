@@ -56,9 +56,17 @@ const schema = new Schema({
   active: {
     type: Boolean,
     default: true
-  }
+  },
+  imeis: {
+    type: Array,
+    validate: [arrayLimit, '{PATH} exceeds the limit of 3']
+  },
 }, {
   timestamps: true
 })
+
+function arrayLimit(val) {
+  return val.length <= 3;
+}
 
 module.exports = { schema, roles }
