@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict'
 
 const User = require('../../models/user')
@@ -22,6 +23,41 @@ exports.updateUser = async (req, res, next) => {
   }
 }
 
+exports.updateUserReferral = async (req, res, next) => {
+  try {
+    const referred_by = req.body.referred_by
+    const user = await User.findById(req.params.user)
+
+    if (user.referral_code === referred_by) {
+      res.status(httpStatus.BAD_REQUEST)
+      res.send({ success: false, message: 'cannot update self referral code' })
+      return
+    }
+    const referral = await User.findOne({referral_code: referred_by})
+    if (!referral) {
+      res.status(httpStatus.BAD_REQUEST)
+      res.send({ success: false, message: 'invalid referral code supplied' })
+      return
+    } else {
+      // store the referral code
+      const ref = new Referral()
+      ref.account_number = user.account_number
+      ref.referral_code = referral.referral_code
+      ref.referred_by = referral.account_number
+      ref.save()
+    }
+
+    // save the ref code
+    user.referred_by = referred_by
+    user.save()
+
+    res.status(httpStatus.OK)
+    res.send({ success: true, message: 'user referral updated successfully', data: user })
+  } catch (error) {
+    next(error)
+  }
+}
+
 exports.deleteUserDevice = async (req, res, next) => {
   try {
     const user = await User.findOne({account_number: req.params.account})
@@ -34,12 +70,11 @@ exports.deleteUserDevice = async (req, res, next) => {
     let imeiArr = user.imeis
 
     let imeiCheck = imeiArr.includes(req.params.imei)
-    if(imeiCheck === true){ // user IMEI included in the user lists of imeis, remove it
-
-      var index = user.imeis.indexOf(req.params.imei);
-      user.imeis.splice(index, 1);
+    if (imeiCheck === true) { // user IMEI included in the user lists of imeis, remove it
+      var index = user.imeis.indexOf(req.params.imei)
+      user.imeis.splice(index, 1)
       user.save()
-    }else{
+    } else {
       res.status(httpStatus.BAD_REQUEST)
       res.send({ success: false, message: 'error fetching user device' })
     }
@@ -85,7 +120,7 @@ exports.claimUserReferral = async (req, res, next) => {
 
     // check if unclaimed referral exists
     const refs = await Referral.find({referred_by: req.params.account, claimed: false})
-    if(refs.length === 0){
+    if (refs.length === 0) {
       res.status(httpStatus.BAD_REQUEST)
       res.send({ success: false, message: 'user does not have any unclaimed referrals' })
       return
@@ -97,8 +132,7 @@ exports.claimUserReferral = async (req, res, next) => {
       // update the referral to claimed
       ref.claimed = true
       ref.save()
-      
-    });
+    })
 
     res.status(httpStatus.OK)
     res.send({ success: true, message: `users has claimed ${refs.length} referral(s) successfully` })

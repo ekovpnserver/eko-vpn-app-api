@@ -24,14 +24,16 @@ exports.createUser = async (req, res, next) => {
 
     const appData = new User(req.body)
 
+    appData.imeis.push(req.body.imei)
+
     const user = await appData.save()
 
     // process referral if any
-    if(req.body.referred_by) {
+    if (req.body.referred_by) {
       const referral = await User.findOne({referral_code: req.body.referred_by})
-      if(!referral){ 
-        // no referral matched with the code provided 
-      }else{
+      if (!referral) {
+        // no referral matched with the code provided
+      } else {
         // store the referral code
         const ref = new Referral()
         ref.account_number = user.account_number
@@ -39,7 +41,7 @@ exports.createUser = async (req, res, next) => {
         ref.referred_by = referral.account_number
         ref.save()
       }
-      }
+    }
 
     if (!user) {
       res.status(httpStatus.BAD_REQUEST)
