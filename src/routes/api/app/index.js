@@ -15,6 +15,7 @@ router.get('/authenticate/refresh-token', auth('apps'), authController.refreshTo
 
 router.post('/user', validator(create), auth('apps'), userController.createUser) // create a user
 router.get('/user/id/:user', auth('apps'), userController.getUserByID) // get a user by ID
+router.post('/user/confirm-sub', userController.confirmSub) // callback endpoint to confirm a user sub, no auth
 router.put('/user/add-referral/:user', auth('apps'), userController.updateUserReferral) // update a user referral by ID
 router.get('/user/claim-referral/:account', auth('apps'), userController.claimUserReferral) // claim a user referral by account
 router.get('/user/account/:account/imei/:imei', auth('apps'), userController.getUserByAccountImei) // get a user by account ID and IMEI

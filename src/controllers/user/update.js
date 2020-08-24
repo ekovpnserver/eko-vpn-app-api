@@ -141,3 +141,30 @@ exports.claimUserReferral = async (req, res, next) => {
     next(error)
   }
 }
+
+exports.confirmSub = async (req, res, next) => {
+  try {
+    const user = await User.findOne({order_number: req.body.purchaseToken})
+    if (user === null) {
+      res.status(httpStatus.BAD_REQUEST)
+      res.send({ success: false, message: 'Cannot update user' })
+      return
+    }
+
+    if (req.body.notificationType === 2 || req.body.notificationType === 4 || req.body.notificationType === 7) { // process any payment successful code
+      user.account_type = 'paid'
+      user.save()
+    }
+
+    if (req.body.notificationType === 3) { // payment cancellation
+      user.account_type = 'free'
+      user.save()
+    }
+
+    // return a 200 to the google endpoint to acknowledge the subscription
+    res.status(httpStatus.OK)
+    res.send({ success: true, message: `user subscription handled successfully` })
+  } catch (error) {
+    next(error)
+  }
+}
