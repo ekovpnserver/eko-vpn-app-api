@@ -120,11 +120,6 @@ exports.claimUserReferral = async (req, res, next) => {
 
     // check if unclaimed referral exists
     const refs = await Referral.find({referred_by: req.params.account, claimed: false})
-    if (refs.length === 0) {
-      res.status(httpStatus.BAD_REQUEST)
-      res.send({ success: false, message: 'user does not have any unclaimed referrals' })
-      return
-    }
 
     refs.forEach(ref => {
       // do something for the claim
@@ -135,7 +130,7 @@ exports.claimUserReferral = async (req, res, next) => {
     })
 
     res.status(httpStatus.OK)
-    res.send({ success: true, message: `users has claimed ${refs.length} referral(s) successfully` })
+    res.send({ success: true, message: `users has claimed ${refs.length} referral(s) successfully`, data: refs.length })
   } catch (error) {
     next(error)
   }
