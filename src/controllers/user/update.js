@@ -28,6 +28,12 @@ exports.updateUserReferral = async (req, res, next) => {
     const referred_by = req.body.referred_by
     const user = await User.findById(req.params.user)
 
+    if (user.referred_by !== null) {
+      res.status(httpStatus.BAD_REQUEST)
+      res.send({ success: false, message: 'user already has a referral code' })
+      return
+    }
+
     if (user.referral_code === referred_by) {
       res.status(httpStatus.BAD_REQUEST)
       res.send({ success: false, message: 'cannot update self referral code' })
