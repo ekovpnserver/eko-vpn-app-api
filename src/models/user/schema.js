@@ -6,7 +6,7 @@ const roles = [
 ]
 
 const userTypes = [
-  'paid', 'free'
+  'paid', 'free', 'canceled'
 ]
 
 const schema = new Schema({

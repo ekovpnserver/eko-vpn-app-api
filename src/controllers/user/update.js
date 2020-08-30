@@ -152,12 +152,30 @@ exports.confirmSub = async (req, res, next) => {
     }
 
     if (req.body.notificationType === 2 || req.body.notificationType === 4 || req.body.notificationType === 7) { // process any payment successful code
+      // collect the sub type and process expiry
+      var sub = req.body.subscriptionId
+
+      var d = new Date()
+      var expiry = new Date()
+      var monthMilliseconds = 2629800000
+      if (sub === 'unlimited_for_one_month') { // top up user expiry for one month
+        expiry.setMinutes(d.getMinutes() + (parseInt(monthMilliseconds) / 60000))
+        user.time_expiry = expiry
+        user.save()
+      } else if (sub === 'unlimited_for_one_year') { // top up user expiry for one year
+        expiry.setMinutes(d.getMinutes() + (parseInt(monthMilliseconds * 12) / 60000))
+
+        user.time_expiry = expiry
+        user.save()
+      } else {
+
+      }
       user.account_type = 'paid'
       user.save()
     }
 
     if (req.body.notificationType === 3) { // payment cancellation
-      user.account_type = 'free'
+      user.account_type = 'canceled'
       user.save()
     }
 
