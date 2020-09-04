@@ -161,12 +161,14 @@ exports.confirmSub = async (req, res, next) => {
       if (sub === 'unlimited_for_one_month') { // top up user expiry for one month
         expiry.setMinutes(d.getMinutes() + (parseInt(monthMilliseconds) / 60000))
         user.time_expiry = expiry
+        user.renewal_at = expiry
         user.subscription_type = 'monthly'
         user.save()
       } else if (sub === 'unlimited_for_one_year') { // top up user expiry for one year
         expiry.setMinutes(d.getMinutes() + (parseInt(monthMilliseconds * 12) / 60000))
 
         user.time_expiry = expiry
+        user.renewal_at = expiry
         user.subscription_type = 'yearly'
         user.save()
       } else {
