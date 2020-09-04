@@ -9,6 +9,10 @@ const userTypes = [
   'paid', 'free', 'canceled'
 ]
 
+const subTypes = [
+  'free', 'monthly', 'yearly'
+]
+
 const schema = new Schema({
   account_number: {
     type: String,
@@ -32,6 +36,11 @@ const schema = new Schema({
     type: String,
     default: 'free',
     enum: userTypes
+  },
+  subscription_type: {
+    type: String,
+    default: 'free',
+    enum: subTypes
   },
   vpn_credits: {
     type: Number,
