@@ -147,7 +147,6 @@ exports.confirmSub = async (req, res, next) => {
   try {
     console.log(req.body)
     const user = await User.findOne({purchase_token: req.body.purchaseToken})
-    console.log(user)
     if (user === null || user.purchase_token === null) {
       res.status(httpStatus.BAD_REQUEST)
       res.send({ success: false, message: 'Cannot update user' })
