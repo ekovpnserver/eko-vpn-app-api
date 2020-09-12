@@ -54,8 +54,12 @@ const schema = new Schema({
     type: String,
     default: null
   },
-  order_data: {
+  order_date: {
     type: Date,
+    default: null
+  },
+  purchase_token: {
+    type: String,
     default: null
   },
   time_expiry: {
