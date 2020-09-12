@@ -151,6 +151,8 @@ exports.confirmSub = async (req, res, next) => {
       return
     }
 
+    console.log(req.body)
+
     if (req.body.notificationType === 2 || req.body.notificationType === 4 || req.body.notificationType === 7) { // process any payment successful code
       // collect the sub type and process expiry
       var sub = req.body.subscriptionId
