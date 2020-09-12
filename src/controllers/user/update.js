@@ -144,7 +144,7 @@ exports.claimUserReferral = async (req, res, next) => {
 
 exports.confirmSub = async (req, res, next) => {
   try {
-    const user = await User.findOne({order_number: req.body.purchaseToken})
+    const user = await User.findOne({purchase_token: req.body.purchaseToken})
     if (user === null) {
       res.status(httpStatus.BAD_REQUEST)
       res.send({ success: false, message: 'Cannot update user' })
