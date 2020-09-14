@@ -145,7 +145,8 @@ exports.claimUserReferral = async (req, res, next) => {
 
 exports.confirmSub = async (req, res, next) => {
   try {
-    console.log(req.body)
+    var data = Buffer.from(req.body.message.data, 'base64').toString()
+    console.log(data)
     const user = await User.findOne({purchase_token: req.body.purchaseToken})
     if (user === null || user.purchase_token === null) {
       res.status(httpStatus.BAD_REQUEST)
