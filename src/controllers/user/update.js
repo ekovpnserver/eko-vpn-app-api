@@ -145,7 +145,7 @@ exports.claimUserReferral = async (req, res, next) => {
 
 exports.confirmSub = async (req, res, next) => {
   try {
-    var data = Buffer.from(req.body.message.data, 'base64').toString()
+    var data = JSON.parse(Buffer.from(req.body.message.data, 'base64').toString())
     console.log(data.subscriptionNotification)
     const user = await User.findOne({purchase_token: data.subscriptionNotification.purchaseToken})
     console.log(user)
