@@ -146,17 +146,18 @@ exports.claimUserReferral = async (req, res, next) => {
 exports.confirmSub = async (req, res, next) => {
   try {
     var data = Buffer.from(req.body.message.data, 'base64').toString()
-    console.log(data)
-    const user = await User.findOne({purchase_token: req.body.purchaseToken})
+    console.log(data.subscriptionNotification)
+    const user = await User.findOne({purchase_token: data.subscriptionNotification.purchaseToken})
+    console.log(user)
     if (user === null || user.purchase_token === null) {
       res.status(httpStatus.BAD_REQUEST)
       res.send({ success: false, message: 'Cannot update user' })
       return
     }
 
-    if (req.body.notificationType === 2 || req.body.notificationType === 4 || req.body.notificationType === 7) { // process any payment successful code
+    if (data.subscriptionNotification.notificationType === 2 || data.subscriptionNotification.notificationType === 4 || data.subscriptionNotification.notificationType === 7) { // process any payment successful code
       // collect the sub type and process expiry
-      var sub = req.body.subscriptionId
+      var sub = data.subscriptionNotification.subscriptionId
 
       var d = new Date()
       var expiry = new Date()
@@ -181,7 +182,7 @@ exports.confirmSub = async (req, res, next) => {
       user.save()
     }
 
-    if (req.body.notificationType === 3) { // payment cancellation
+    if (data.subscriptionNotification.notificationType === 3) { // payment cancellation
       user.account_type = 'canceled'
       user.save()
     }
