@@ -148,7 +148,7 @@ exports.confirmSub = async (req, res, next) => {
     var data = JSON.parse(Buffer.from(req.body.message.data, 'base64').toString())
     console.log(data.subscriptionNotification)
     const user = await User.findOne({purchase_token: data.subscriptionNotification.purchaseToken})
-    console.log(user)
+    // console.log(user)
     if (user === null || user.purchase_token === null) {
       res.status(httpStatus.BAD_REQUEST)
       res.send({ success: false, message: 'Cannot update user' })
@@ -184,6 +184,11 @@ exports.confirmSub = async (req, res, next) => {
 
     if (data.subscriptionNotification.notificationType === 3) { // payment cancellation
       user.account_type = 'canceled'
+      user.save()
+    }
+
+    if (data.subscriptionNotification.notificationType === 13) { // payment expiry
+      user.account_type = 'free'
       user.save()
     }
 
