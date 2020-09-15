@@ -7,7 +7,7 @@ var path = require('path')
 
 router.get('/status', (req, res) => { res.send({status: `${config.app} is OK`}) }) // api status
 
-router.get('/ads.json', (req, res) => {
+router.get('/file-ads.json', (req, res) => {
   /* Insted of doing all this */
   // res.writeHead(200, {
   //    'Content-type': 'application/json'
