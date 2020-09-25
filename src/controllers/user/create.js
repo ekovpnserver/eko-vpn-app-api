@@ -28,6 +28,10 @@ exports.createUser = async (req, res, next) => {
 
     const user = await appData.save()
 
+    // resave the time expiry
+    user.time_expiry = user.createdAt
+    user.save()
+
     // process referral if any
     if (req.body.referred_by) {
       const referral = await User.findOne({referral_code: req.body.referred_by})
