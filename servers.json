@@ -22,7 +22,7 @@
       "ip": "54.80.119.49"
     },
     "wireguard": {
-      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/virginia.conf.txt"
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/n_virginia.txt"
     }
   },
   {
@@ -53,6 +53,110 @@
   },
   {
     "location": {
+      "city": "Ohio",
+      "country": "USA",
+      "country_code": "US"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/us_ohio_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/us_ohio_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/us_ohio.pem",
+      "username": "ohio",
+      "password": "OHIO_2020",
+      "ip": "3.129.106.106"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/ohio.conf.txt"
+    }
+  },
+  {
+    "location": {
+      "city": "Oregon",
+      "country": "USA",
+      "country_code": "US"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/us_oregon_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/us_oregon_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/us_oregon.pem",
+      "username": "oregon",
+      "password": "OREGON_2020",
+      "ip": "44.232.148.70"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/oregon.conf.txt"
+    }
+  },
+  {
+    "location": {
+      "city": "Stockholm",
+      "country": "Sweden",
+      "country_code": "SE"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/sweeden_stockholm_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/sweeden_stockholm_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/sweeden-ca.pem",
+      "username": "stockholm",
+      "password": "SE_STOCKHOLM_2020",
+      "ip": "13.49.114.83"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/stockholm.conf.txt"
+    }
+  },
+  {
+    "location": {
+      "city": "Seoul",
+      "country": "South Korea",
+      "country_code": "KR"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/southkorea_seoul_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/southkorea_seoul_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/sk_seoul.pem",
+      "username": "seoul",
+      "password": "SK_SEOUL_2020",
+      "ip": "3.34.244.178"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/seoul.conf.txt"
+    }
+  },
+  {
+    "location": {
       "city": "Cape Town",
       "country": "South Africa",
       "country_code": "ZA"
@@ -74,7 +178,85 @@
       "ip": "13.245.51.145"
     },
     "wireguard": {
-      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/capetown.conf.txt"
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/sa.conf.txt"
+    }
+  },
+  {
+    "location": {
+      "city": "Tokyo",
+      "country": "Japan",
+      "country_code": "JP"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/japan_tokyo_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/japan_tokyo_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/jp_tokyo.pem",
+      "username": "tokyo",
+      "password": "JP_TOKYO_2020",
+      "ip": "54.64.216.31"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/california.conf.txt"
+    }
+  },
+  {
+    "location": {
+      "city": "Milan",
+      "country": "Italy",
+      "country_code": "IT"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/italy_milan_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/italy_milan_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/milan-ca.pem",
+      "username": "milan",
+      "password": "EU_MILAN_2020",
+      "ip": "15.161.5.132"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/tokyo.conf.txt"
+    }
+  },
+  {
+    "location": {
+      "city": "Dublin",
+      "country": "Ireland",
+      "country_code": "IE"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/ireland_dublin_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/ireland_dublin_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/ireland-ca.pem",
+      "username": "ireland",
+      "password": "EU_IRELAND_2020",
+      "ip": "54.73.87.233"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/ireland.conf.txt"
     }
   },
   {
@@ -157,6 +339,32 @@
   },
   {
     "location": {
+      "city": "Paris",
+      "country": "France",
+      "country_code": "FR"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/france_paris_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/france_paris_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/paris-ca.pem",
+      "username": "paris",
+      "password": "FR_PARIS_2020",
+      "ip": "15.236.197.136"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/paris.conf.txt"
+    }
+  },
+  {
+    "location": {
       "city": "Ontario",
       "country": "Canada",
       "country_code": "CA"
@@ -178,7 +386,7 @@
       "ip": "15.222.200.189"
     },
     "wireguard": {
-      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/canada.conf.txt"
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/canada_config.conf.txt"
     }
   },
   {
@@ -235,6 +443,32 @@
   },
   {
     "location": {
+      "city": "Persia",
+      "country": "Bahrain",
+      "country_code": "BH"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/bahrain_persia_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/bahrain_persia_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/bahrain-ca.pem",
+      "username": "bahrain",
+      "password": "BAHRAIN_2020",
+      "ip": "15.185.180.231"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/bahrain.conf.txt"
+    }
+  },
+  {
+    "location": {
       "city": "Sydney",
       "country": "Australia",
       "country_code": "AU"
@@ -257,6 +491,32 @@
     },
     "wireguard": {
       "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/sydney.conf.txt"
+    }
+  },
+  {
+    "location": {
+      "city": "Singapore",
+      "country": "Asia",
+      "country_code": "SG"
+    },
+    "open_vpn": [
+      {
+        "protocol": "TCP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/asia_singapore_tcp.ovpn"
+      },
+      {
+        "protocol": "UDP",
+        "configfileurl": "https://credential-file-2020.s3.amazonaws.com/asia_singapore_udp.ovpn"
+      }
+    ],
+    "ikev2": {
+      "certificate_url": "https://ikev2-credential-2020.s3.amazonaws.com/singapore.pem",
+      "username": "singapore",
+      "password": "SINGAPORE_2020",
+      "ip": "54.179.15.125"
+    },
+    "wireguard": {
+      "configfileurl": "https://wireguard-conig-files.s3.amazonaws.com/singapore.conf.txt"
     }
   }
 ]
